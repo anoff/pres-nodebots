@@ -7,7 +7,8 @@
     "build:dist": "NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx src",
     "dist": "npm run clean:dist && npm run build:dist",
-    "start": "node server.js"
+    "start": "node server.js",
+    "stage": "git add dist/"
   },
   "author": "",
   "license": "MIT",
@@ -77,6 +78,7 @@
     "webpack-hot-middleware": "^2.13.0"
   },
   "pre-commit": [
-    "dist"
+    "dist",
+    "stage"
   ]
 }
