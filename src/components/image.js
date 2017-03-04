@@ -8,7 +8,8 @@ export default class Image extends Component {
     const styles = {
       width: this.props.width || "",
       height: this.props.height || "",
-      display: this.props.display || ""
+      display: this.props.display || "",
+      align: this.props.align || ""
     };
     return (
       <img
@@ -32,6 +33,7 @@ Image.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
+  props: PropTypes.string,
   src: PropTypes.string,
   style: PropTypes.object,
   width: PropTypes.oneOfType([
