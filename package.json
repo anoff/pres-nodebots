@@ -8,7 +8,7 @@
     "lint": "eslint --ext .js,.jsx src",
     "dist": "npm run clean:dist && npm run build:dist",
     "start": "node server.js",
-    "deploy": "npm run build:dist && surge -p ."
+    "deploy": "npm run build:dist && surge -p . -d nodebots.surge.sh"
   },
   "author": "",
   "license": "MIT",
