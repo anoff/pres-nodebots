@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 var path = require("path");
 var webpack = require("webpack");
 
@@ -12,7 +14,6 @@ module.exports = {
     publicPath: "/dist/"
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         "NODE_ENV": JSON.stringify("production")
@@ -26,14 +27,17 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.js$/,
+      test: /\.md$/,
+      loader: "html-loader!markdown-loader?gfm=false"
+    }, {
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       loader: "babel-loader"
     }, {
       test: /\.css$/,
       loader: "style-loader!css-loader"
     }, {
-      test: /\.(png|jpg)$/,
+      test: /\.(png|jpg|gif)$/,
       loader: "url-loader?limit=8192"
     }, {
       test: /\.svg$/,

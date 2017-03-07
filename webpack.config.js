@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 var path = require("path");
 var webpack = require("webpack");
 
@@ -19,7 +21,11 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.js$/,
+      test: /\.md$/,
+      loader: "html-loader!markdown-loader?gfm=false"
+    }, {
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
       loader: "babel-loader",
       query: {
         plugins: [
@@ -50,6 +56,10 @@ module.exports = {
     }, {
       test: /\.png$/,
       loader: "url-loader?mimetype=image/png",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.gif$/,
+      loader: "url-loader?mimetype=image/gif",
       include: path.join(__dirname, "assets")
     }, {
       test: /\.jpg$/,
