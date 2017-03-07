@@ -87,6 +87,11 @@ export default class Presentation extends React.Component {
 
           `
         }
+        <Slide>
+          <Heading size={3}>Attribution</Heading>
+          <Text>find the source for this talk on github @ pres-nodebots-2017-03-09</Text>
+          <Text>images used are listed in the readme </Text>
+        </Slide>
       </Deck>
     );
   }
